@@ -8,9 +8,9 @@ Each week, you'll find a new folder with a project to help you practice what you
 
 ## 📁 What's in this repo?
 
-You'll see folders like:
+You'll find all weekly project listed here:
 
-- `week-01-landing-page`
+- [week-01-google-landing-page](week-01-google-landing-page/)
 
 Each folder is a complete project for that week.
 
@@ -37,7 +37,7 @@ This will copy all the projects to your computer.
 Go into the folder for the week you want to work on. For example:
 
 ```bash
-cd week-01-landing-page
+cd week-01-google-landing-page
 ```
 
 ---
