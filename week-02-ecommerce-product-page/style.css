@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+}
+
+
+#business-logo {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.profile {
+    width: 36px;
+}
+
+
+.product-img {
+    max-width: 100vw;
+}
+
+.product-wrapper {
+    position: relative;
+}
+
+.button-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.8rem;
+}
+
+.button-wrapper button {
+    padding: 12px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail {
+    padding: 1.2rem;
+}
+
+.company {
+    color: #666;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
+}
+
+.product-description {
+    color: #888;
+}
+
+.product-title {
+    margin: 0.8rem 0 1rem 0;
+}
+
+.product-prices {
+    display: flex;
+    align-items: baseline;
+    margin-block: 2rem;
+    gap: 0.5rem
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.discount {
+    background-color: black;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.off {
+    color: #888;
+    font-weight: 600;
+    text-decoration: line-through;
+    margin-left: auto
+}
+
+.counter-buttons {
+    background-color: #ededed;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.counter-buttons button {
+    height: 56px;
+    width: 56px;
+    border: none;
+    transition: all;
+    transition-duration: 200ms;
+}
+
+
+.counter-buttons button:hover {
+    background-color: #dcdcdc;
+}
+
+.quantity {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.add-to-cart {
+    width: 100%;
+    height: 56px;
+    background-color: #ff772e;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
