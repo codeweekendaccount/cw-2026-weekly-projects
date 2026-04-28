@@ -1,37 +1,64 @@
-
-function generateSesret() {
+// This function generates the secret number (between 1 and 100).
+function generateSecret() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
+// This function is responsible for getting input from the user, 
+function getUserGuess(attemptsLeft) {
+    const input = prompt(
+        `Guess the number (1-100)\nAttempts left: ${attemptsLeft}`
+    );
+
+    // Convert the input (which is always a string) into a number
+    return Number(input);
+}
+
+function evaluateGuess(guess, secret) {
+    if (guess > secret) return "high";
+    if (guess < secret) return "low";
+    return "correct";
+}
+
+
 function startGame() {
-    let secretNumber = generateSesret()
+    const secret = generateSecret();
 
-    console.log(secretNumber)
+    // For development/debugging only, in a real game we wouldn't reveal this to users
+    console.log("The secret is " + secret + ", keep it secret");
 
-    let attemps = 5;
+    // Number of times user can guess to find the secret
+    let attempts = 5;
 
-    let userGuess;
+    while (attempts > 0) {
 
-    while (attemps > 0) {
-        userGuess = Number(prompt("Guess the number"))
+        const guess = getUserGuess(attempts);
 
-        if (isNaN(userGuess)) {
-            alert("Invalid input");
+        // Validating the input from user, 
+        if (isNaN(guess)) {
+            alert("Please enter a valid number");
+
+            // skip current round if the the input was not a number
             continue;
         }
 
-        if (userGuess < secretNumber) {
-            alert("Very low")
-        } else if (userGuess > secretNumber) {
-            alert("Very high")
-        } else {
-            alert("Congratulations, You were right")
-            break;
+        const result = evaluateGuess(guess, secret);
+
+        if (result === "correct") {
+            alert(`Correct! The number was ${secret}`);
+
+            // If the guess was correct, we end the game immediately
+            // we stop the function here so nothing else runs after winning
+            return;
         }
 
-        attemps -= 1;
+        alert(result === "low" ? "Too Low" : "Too High");
+
+        attempts--;
     }
 
+    // If the loop ends, it means the user ran out of attempts
+    alert(`Game Over! The secret number was ${secret}`);
 }
 
-startGame()
+
+startGame();
