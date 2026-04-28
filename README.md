@@ -11,6 +11,7 @@ Each week, you'll find a new folder with a project to help you practice what you
 You'll find all weekly project listed here:
 
 - [week-01-google-landing-page](week-01-google-landing-page/)
+- [week-01-ecommerce-product-detail-page](week-02-ecommerce-product-page/)
 
 Each folder is a complete project for that week.
 
