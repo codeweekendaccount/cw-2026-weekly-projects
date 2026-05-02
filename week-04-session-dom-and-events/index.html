@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile | JavaScript II Project</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">JavaScript II Project</p>
+        <h1>Interactive Student Profile</h1>
+        <p class="hero-copy">
+          Change content, style, and list items using real DOM events.
+        </p>
+        <button id="toggle-hints-btn" class="hints-toggle-btn" type="button">
+          Show Selectors
+        </button>
+      </header>
+
+      <section id="profile-card" class="profile-card">
+        <p class="selector-hint">Selector: #profile-card</p>
+        <h2 id="student-name">
+          Amina Rahimi
+          <small class="selector-hint">#student-name</small>
+        </h2>
+        <p class="meta-line">
+          Grade:
+          <span id="student-grade">10</span>
+          <small class="selector-hint">#student-grade</small>
+        </p>
+        <p class="meta-line">
+          Status:
+          <span id="student-status" class="status-chip status-active"
+            >Ready to Learn</span
+          >
+          <small class="selector-hint">#student-status</small>
+        </p>
+      </section>
+
+      <section class="controls">
+        <h3>Profile Actions</h3>
+        <p class="selector-hint">Try selecting these by ID in JavaScript</p>
+        <div class="control-row">
+          <button id="update-name-btn" type="button">
+            Update Name <small class="selector-hint">#update-name-btn</small>
+          </button>
+          <button id="update-grade-btn" type="button">
+            Update Grade <small class="selector-hint">#update-grade-btn</small>
+          </button>
+          <button id="update-status-btn" type="button">
+            Update Status
+            <small class="selector-hint">#update-status-btn</small>
+          </button>
+          <button id="toggle-highlight-btn" type="button">
+            Toggle Highlight
+            <small class="selector-hint">#toggle-highlight-btn</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="subjects-panel">
+        <h3>Subjects</h3>
+        <p class="selector-hint">Parent for event delegation: #subject-list</p>
+        <div class="subject-form">
+          <label for="new-subject-input">Add a new subject</label>
+          <div class="input-row">
+            <input
+              id="new-subject-input"
+              type="text"
+              placeholder="Type subject name, ex: History"
+              autocomplete="off"
+            />
+            <button id="add-subject-btn" type="button">
+              Add Subject <small class="selector-hint">#add-subject-btn</small>
+            </button>
+          </div>
+        </div>
+        <ul id="subject-list" class="subject-list">
+          <li class="subject-item">
+            <span class="subject-title">Mathematics</span>
+            <button class="remove-subject-btn" type="button">
+              Remove <small class="selector-hint">.remove-subject-btn</small>
+            </button>
+          </li>
+          <li class="subject-item">
+            <span class="subject-title">English</span>
+            <button class="remove-subject-btn" type="button">
+              Remove <small class="selector-hint">.remove-subject-btn</small>
+            </button>
+          </li>
+          <li class="subject-item">
+            <span class="subject-title">Computer Science</span>
+            <button class="remove-subject-btn" type="button">
+              Remove <small class="selector-hint">.remove-subject-btn</small>
+            </button>
+          </li>
+        </ul>
+        <p id="subject-feedback" class="feedback"></p>
+      </section>
+
+      <section class="mood-panel">
+        <h3>Mood Tracker</h3>
+        <p class="selector-hint">Event target check: button[data-mood]</p>
+        <p class="mood-line">
+          Current mood:
+          <span id="current-mood">Focused</span>
+          <small class="selector-hint">#current-mood</small>
+        </p>
+        <div id="mood-buttons" class="mood-buttons">
+          <button type="button" data-mood="Focused" class="active">
+            Focused
+          </button>
+          <button type="button" data-mood="Excited">Excited</button>
+          <button type="button" data-mood="Curious">Curious</button>
+          <button type="button" data-mood="Confident">Confident</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
