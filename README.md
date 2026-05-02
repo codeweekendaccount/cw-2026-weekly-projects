@@ -12,6 +12,7 @@ You'll find all weekly project listed here:
 
 - [week-01-google-landing-page](week-01-google-landing-page/)
 - [week-02-ecommerce-product-detail-page](week-02-ecommerce-product-page/)
+- [week-03-number-gussing-game](week-03-number-gussing-game/)
 
 Each folder is a complete project for that week.
 
