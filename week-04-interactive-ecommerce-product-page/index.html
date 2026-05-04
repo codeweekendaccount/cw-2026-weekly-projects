@@ -35,25 +35,24 @@
 
       <div class="header-right">
         <div class="dropdown">
-          <button class="cart-btn">
+          <button class="cart-btn" type="button">
             <img
               src="./assets/images/icon-cart.svg"
               alt="Cart icon"
               class="icon"
             />
+            <span class="cart-count">0</span>
           </button>
 
           <div class="cart-menu">
-            <ul>
-              <li>
-				<h3>Fall Limited Edition Sneakers</h3>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore officiis repudiandae iste provident error aliquam!</p>
-              </li>
-            </ul>
+            <h2>Cart</h2>
+            <div class="cart-content">
+              <p class="empty-cart">Your cart is empty.</p>
+            </div>
           </div>
         </div>
 
-        <button>
+        <button type="button">
           <img
             src="./assets/images/image-avatar.png"
             alt="Cart icon"
@@ -91,28 +90,28 @@
         </div>
 
         <div class="button-wrapper">
-          <button onclick="plusSlides(-1)">
+          <button type="button" class="prev-btn">
             <img src="./assets/images/icon-previous.svg" alt="" class="icon" />
           </button>
-          <button onclick="plusSlides(1)">
+          <button type="button" class="next-btn">
             <img src="./assets/images/icon-next.svg" alt="" class="icon" />
           </button>
         </div>
 
         <div class="product-thumbnails">
-          <span class="mini-images" onclick="currentSlide(0)">
+          <span class="mini-images active">
             <img src="./assets/images/image-product-1-thumbnail.jpg" alt="" />
             <span></span>
           </span>
-          <span class="mini-images" onclick="currentSlide(1)">
+          <span class="mini-images">
             <img src="./assets/images/image-product-2-thumbnail.jpg" alt="" />
             <span></span>
           </span>
-          <span class="mini-images" onclick="currentSlide(2)">
+          <span class="mini-images">
             <img src="./assets/images/image-product-3-thumbnail.jpg" alt="" />
             <span></span>
           </span>
-          <span class="mini-images" onclick="currentSlide(3)">
+          <span class="mini-images">
             <img src="./assets/images/image-product-4-thumbnail.jpg" alt="" />
             <span></span>
           </span>
@@ -139,7 +138,7 @@
 
         <div class="button-and-counter">
           <div class="counter-buttons">
-            <button>
+            <button type="button" onclick="addToQuantity(-1)">
               <img
                 src="./assets/images/icon-minus.svg"
                 alt="Minus Icon"
@@ -147,7 +146,7 @@
               />
             </button>
             <span class="quantity">0</span>
-            <button>
+            <button type="button" onclick="addToQuantity(1)">
               <img
                 src="./assets/images/icon-plus.svg"
                 alt="Plus Icon"
@@ -156,7 +155,7 @@
             </button>
           </div>
 
-          <button class="add-to-cart">
+          <button class="add-to-cart" type="button">
             <img
               src="./assets/images/icon-cart.svg"
               alt="Cart Icon"
