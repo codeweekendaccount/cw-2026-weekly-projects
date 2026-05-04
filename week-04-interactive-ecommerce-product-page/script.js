@@ -17,8 +17,8 @@ function showSlides(index) {
   wrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
 
   // Make mini images active
-  miniImages.forEach(() => {
-    miniImages[i].classList.remove("active");
+  miniImages.forEach((img) => {
+    img.classList.remove("active");
   })
   miniImages[slideIndex].classList.add("active");
 }
