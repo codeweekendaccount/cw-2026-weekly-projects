@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Library</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo">
+                    <div>
+                        <h1>AI Prompt Library</h1>
+                        <p>Discover curated prompts powered by AI</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <div class="stat-number" id="headerTotal">0</div>
+                        <div class="stat-label">Prompts</div>
+                    </div>
+                    <div class="header-stat">
+                        <div class="stat-number" id="headerFavorites">0</div>
+                        <div class="stat-label">Saved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Sidebar with Controls -->
+        <aside class="sidebar">
+            <!-- Search Section -->
+            <div class="control-panel">
+                <h3 class="panel-title">Search</h3>
+                <div class="search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search prompts..."
+                    >
+                </div>
+            </div>
+
+            <!-- Category Filter Section -->
+            <div class="control-panel">
+                <h3 class="panel-title">Categories</h3>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">All Categories</button>
+                    <button class="category-btn" data-category="programming">💻 Programming</button>
+                    <button class="category-btn" data-category="writing">✍️ Writing</button>
+                    <button class="category-btn" data-category="marketing">📢 Marketing</button>
+                    <button class="category-btn" data-category="productivity">⚡ Productivity</button>
+                </div>
+            </div>
+
+            <!-- View Options -->
+            <div class="control-panel">
+                <h3 class="panel-title">View</h3>
+                <div class="view-buttons">
+                    <button class="view-btn active" data-view="all">All Prompts</button>
+                    <button class="view-btn" data-view="favorites">Favorites</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content">
+            <!-- Content Header -->
+            <div class="content-header">
+                <div class="content-title">
+                    <h2 id="contentTitle">All Prompts</h2>
+                    <p id="contentSubtitle" class="subtitle">Browse and save your favorite AI prompts</p>
+                </div>
+                <div class="content-info">
+                    <span class="showing-count">Showing <strong id="showingCount">0</strong> prompts</span>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading prompts...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🔍</div>
+                <p>No prompts found. Try adjusting your filters.</p>
+            </div>
+
+            <!-- Prompt Cards Grid -->
+            <div class="prompts-grid" id="promptsGrid">
+                <!-- Prompt cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Prompt Details Modal -->
+    <div class="modal" id="promptModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="modal-header">
+                <div class="modal-badge" id="modalCategory"></div>
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <p id="modalPrompt"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCopyBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M16 4H2v14h14M8 9h12v10H8z"></path>
+                    </svg>
+                    Copy
+                </button>
+                <button class="btn btn-primary" id="modalFavoriteBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    Save to Favorites
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
