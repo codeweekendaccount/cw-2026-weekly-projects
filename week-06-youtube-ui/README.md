@@ -1,16 +1,32 @@
-# React + Vite
+# 📺 Week 06: YouTube UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 What the project is about
+In this project, you will build a clone of the YouTube user interface. This is a great exercise for handling complex layouts, sidebar navigation, and multi-view navigation within a single-page application.
 
-Currently, two official plugins are available:
+## 🎯 What you will learn
+By completing this project, you will practice and master:
+- **React Router:** Implementing navigation between the Home feed and Video watch pages.
+- **Complex Layouts:** Using CSS Grid and Flexbox to replicate a professional-grade UI.
+- **Responsive Components:** Creating a navigation bar and sidebar that adapt to different screen sizes.
+- **Mock Data Handling:** Managing and rendering complex video metadata arrays.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 How to run it
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Install Dependencies
+Navigate to the project folder and run:
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### 2. Start the App
+Run the following command to start the development server:
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open the URL shown in your terminal to see your YouTube clone in action!
+
+---
+Happy Coding! 🚀

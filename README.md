@@ -13,6 +13,11 @@ You'll find all weekly project listed here:
 - [week-01-google-landing-page](week-01-google-landing-page/)
 - [week-02-ecommerce-product-detail-page](week-02-ecommerce-product-page/)
 - [week-03-number-gussing-game](week-03-number-gussing-game/)
+- [week-04-interactive-ecommerce-product-page](week-04-interactive-ecommerce-product-page/)
+- [week-05-ai-prompts-library](week-05-ai-prompts-library/)
+- [week-06-youtube-ui](week-06-youtube-ui/)
+- [week-07-notes-app](week-07-notes-app/)
+- [week-08-recipe-explorer](week-08-recipe-explorer/)
 
 Each folder is a complete project for that week.
 

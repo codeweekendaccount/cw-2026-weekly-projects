@@ -1,24 +1,32 @@
-# Week 2: Ecommerce Product Page
+# 🛒 Week 04: Interactive Ecommerce Product Page
 
-This project is a responsive ecommerce product page for a sneaker store, built with HTML and CSS as a practical project from the CodeWeekend Bootcamp.
+## 📝 What the project is about
+In this project, you will take the ecommerce product page to the next level by adding advanced interactivity. Users will be able to browse product images in a gallery, adjust quantities, and manage a shopping cart dynamically.
 
-## Files
-- `index.html`: The main HTML structure
-- `style.css`: The styling for the page
-- `assets/images/`: Product images and icons
+## 🎯 What you will learn
+By completing this project, you will practice and master:
+- **Advanced State Management:** Handling complex UI states like cart visibility and item counts.
+- **Event Handling:** Capturing user clicks for galleries and cart updates.
+- **Conditional Rendering:** Showing and hiding elements based on user interaction.
+- **Component Composition:** Breaking down a complex page into small, manageable React components.
 
-## How to Run and View the Project in VS Code
+---
 
-1. **Open the Project in VS Code**:
-   - Launch Visual Studio Code.
-   - Go to `File` > `Open Folder...` and select the `week-02-ecommerce-product-page` folder.
+## 🚀 How to run it
 
-2. **View the Project**:
-   - In the VS Code Explorer (left sidebar), find `index.html`.
-   - Right-click on `index.html` and choose `Open with Live Server` (requires the Live Server extension) for live reloading, or `Reveal in File Explorer` and double-click to open in your default browser.
-   - Alternatively, drag `index.html` from the Explorer into an open browser window.
+### 1. Install Dependencies
+Navigate to the project folder and run:
+```bash
+npm install
+```
 
-3. **Optional: Install Live Server Extension**:
-   - For a better development experience with automatic page refresh on changes, install the "Live Server" extension by Ritwick Dey from the VS Code Extensions Marketplace (`Ctrl+Shift+X`, search for "Live Server").
+### 2. Start the App
+Run the following command to start the development server:
+```bash
+npm run dev
+```
 
-This will display the ecommerce product page in your browser.
+Open the URL shown in your terminal to see your interactive page in action!
+
+---
+Happy Coding! 🚀
