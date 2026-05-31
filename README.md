@@ -1,94 +1,60 @@
-# 🚀 Welcome to the CodeWeekend Bootcamp Projects!
+# CodeWeekend 2026 Weekly Projects
 
-This repository is your home for all the hands-on projects you'll build during the Frontend Development and AI Engineering Bootcamp.
+This repository contains the weekly frontend projects built during the CodeWeekend bootcamp. Each project has its own folder and README with the technologies used, file structure, and run instructions.
 
-Each week, you'll find a new folder with a project to help you practice what you learn.
+## Projects
 
----
+| Week | Project | Tech |
+| --- | --- | --- |
+| 01 | [Google Landing Page](week-01-google-landing-page/) | HTML, CSS, Font Awesome CDN |
+| 02 | [Ecommerce Product Page](week-02-ecommerce-product-page/) | HTML, CSS, local image assets |
+| 03 | [Number Guessing Game](week-03-number-gussing-game/) | HTML, JavaScript |
+| 04 | [Interactive Ecommerce Product Page](week-04-interactive-ecommerce-product-page/) | HTML, CSS, JavaScript |
+| 05 | [AI Prompts Library](week-05-ai-prompts-library/) | HTML, CSS, JavaScript modules, localStorage |
+| 06 | [YouTube UI](week-06-youtube-ui/) | React, Vite, Tailwind CSS, React Icons |
+| 07 | [Notes App](week-07-notes-app/) | React, Vite, Tailwind CSS, lucide-react, localStorage |
+| 08 | [Recipe Explorer](week-08-recipe-explorer/) | React, Vite, Tailwind CSS, lucide-react, TheMealDB API |
 
-## 📁 What's in this repo?
+There are also session practice folders, such as `week-04-session-dom-and-events/` and `week-05-session-async-and-web-apis/`, used for smaller class exercises.
 
-You'll find all weekly project listed here:
+## How to Run Projects
 
-- [week-01-google-landing-page](week-01-google-landing-page/)
-- [week-02-ecommerce-product-detail-page](week-02-ecommerce-product-page/)
-- [week-03-number-gussing-game](week-03-number-gussing-game/)
-- [week-04-interactive-ecommerce-product-page](week-04-interactive-ecommerce-product-page/)
-- [week-05-ai-prompts-library](week-05-ai-prompts-library/)
-- [week-06-youtube-ui](week-06-youtube-ui/)
-- [week-07-notes-app](week-07-notes-app/)
-- [week-08-recipe-explorer](week-08-recipe-explorer/)
+### Static HTML projects
 
-Each folder is a complete project for that week.
+Weeks 1-5 can be opened directly in the browser:
 
----
+1. Open the project folder.
+2. Open `index.html` in your browser.
+3. For a smoother workflow, use the VS Code Live Server extension.
 
-## ▶️ How to get started with a project
+Week 5 uses JavaScript modules and fetches local data, so Live Server or another local server is recommended.
 
-Follow these simple steps:
+### Vite React projects
 
-### 1. Get the code
-
-Open your terminal and type:
-
-```bash
-git clone <repository-url>
-```
-
-This will copy all the projects to your computer.
-
----
-
-### 2. Open a project
-
-Go into the folder for the week you want to work on. For example:
+Weeks 6-8 use Vite:
 
 ```bash
-cd week-01-google-landing-page
+cd week-06-youtube-ui
+npm install
+npm run dev
 ```
 
----
+Use the same commands inside `week-07-notes-app` or `week-08-recipe-explorer` when working on those projects.
 
-### 3. Read the instructions
+## Common Commands
 
-Inside every project folder, there is a file called `README.md`.
+For Vite projects:
 
-Open this file and read it carefully. It will tell you:
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
 
-- What the project is about
-- How to run it on your computer
-- What you will learn
+## Notes
 
----
-
-## 🧠 What will you learn?
-
-By doing these projects, you will practice:
-
-- HTML & CSS basics
-- Making websites look good on any device (responsive design)
-- React (a popular JavaScript library)
-- Using APIs (getting data from other websites)
-- Adding AI features (like OpenAI)
-- And much more!
-
----
-
-## ⚠️ Important tips
-
-- **Don't delete any files** unless your mentor says so
-- **Always read the README** in each project folder
-- If something doesn't work, **check the error message in your terminal**
-- Make sure you have **Node.js installed** (ask your mentor if you need help)
-
----
-
-## ❓ Need help?
-
-- Read the error message carefully
-- Check the README again for instructions
-- If you're still stuck, ask your mentor and share a screenshot of your error
-
----
-
-Happy coding! 🚀
+- Keep each week's work inside its own folder.
+- Read the project README before editing a project.
+- Do not delete asset folders; many pages depend on local images and icons.
+- If a Vite project does not start, run `npm install` inside that specific project folder.

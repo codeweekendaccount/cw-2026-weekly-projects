@@ -1,32 +1,82 @@
-# 📝 Week 07: Notes App
+# Week 07: Notes App
 
-## 📝 What the project is about
-You will build a fully functional Notes Application. This project focuses on CRUD (Create, Read, Update, Delete) operations and efficient state management across the entire application.
+A React notes app for creating, searching, displaying, deleting, and persisting notes in the browser.
 
-## 🎯 What you will learn
-By completing this project, you will practice and master:
-- **Context API:** Managing global application state for notes to avoid "prop drilling."
-- **CRUD Operations:** Implementing logic to add, edit, search, and delete notes.
-- **Local Storage Persistence:** Saving notes to the browser's local storage so they persist after page refresh.
-- **Dynamic UI Updates:** Using search inputs to filter displayed notes in real-time.
+## Tech Used
 
----
+- React 19
+- Vite
+- Tailwind CSS 4
+- lucide-react
+- `localStorage`
+- ESLint
 
-## 🚀 How to run it
+## Project Structure
 
-### 1. Install Dependencies
-Navigate to the project folder and run:
-```bash
-npm install
+```text
+week-07-notes-app/
+|-- public/
+|   |-- favicon.svg
+|   `-- icons.svg
+|-- src/
+|   |-- assets/
+|   |   |-- empty_state.png
+|   |   `-- hero.png
+|   |-- components/
+|   |   |-- EmptyState.jsx
+|   |   |-- Header.jsx
+|   |   |-- NoteCard.jsx
+|   |   |-- NoteForm.jsx
+|   |   |-- NotesList.jsx
+|   |   `-- StatsBar.jsx
+|   |-- utils/
+|   |   `-- storage.js
+|   |-- App.jsx
+|   |-- index.css
+|   `-- main.jsx
+|-- index.html
+|-- package.json
+|-- vite.config.js
+|-- eslint.config.js
+`-- README.md
 ```
 
-### 2. Start the App
-Run the following command to start the development server:
+## Main Files
+
+- `src/App.jsx`: Owns notes state, search term, filtered notes, notes-created-today count, and localStorage save effect.
+- `src/utils/storage.js`: Loads notes from `localStorage` and saves updated notes.
+- `src/components/Header.jsx`: Top section and search input.
+- `src/components/StatsBar.jsx`: Displays total notes and notes created today.
+- `src/components/NoteForm.jsx`: Controlled form for adding notes with validation.
+- `src/components/NotesList.jsx`: Renders the list of note cards.
+- `src/components/NoteCard.jsx`: Displays a single note and delete action.
+- `src/components/EmptyState.jsx`: Empty result view.
+
+## Features
+
+- Add notes with title and content.
+- Validate that title and content are both provided.
+- Search notes by title or content.
+- Delete notes.
+- Save notes to `localStorage` after changes.
+- Load saved notes when the app starts.
+- Show total notes and notes created today.
+- Responsive Tailwind-based UI.
+
+## How to Run
+
 ```bash
+npm install
 npm run dev
 ```
 
-Open the URL shown in your terminal to start taking notes!
+Open the local URL shown in your terminal.
 
----
-Happy Coding! 🚀
+## Available Scripts
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```

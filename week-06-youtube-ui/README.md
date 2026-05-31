@@ -1,32 +1,78 @@
-# 📺 Week 06: YouTube UI
+# Week 06: YouTube UI
 
-## 📝 What the project is about
-In this project, you will build a clone of the YouTube user interface. This is a great exercise for handling complex layouts, sidebar navigation, and multi-view navigation within a single-page application.
+A YouTube-style video feed built with React, Vite, Tailwind CSS, and React Icons. The app uses local mock data for videos, shorts, categories, and sidebar items.
 
-## 🎯 What you will learn
-By completing this project, you will practice and master:
-- **React Router:** Implementing navigation between the Home feed and Video watch pages.
-- **Complex Layouts:** Using CSS Grid and Flexbox to replicate a professional-grade UI.
-- **Responsive Components:** Creating a navigation bar and sidebar that adapt to different screen sizes.
-- **Mock Data Handling:** Managing and rendering complex video metadata arrays.
+## Tech Used
 
----
+- React 19
+- Vite
+- Tailwind CSS 4
+- React Icons
+- ESLint
 
-## 🚀 How to run it
+## Project Structure
 
-### 1. Install Dependencies
-Navigate to the project folder and run:
-```bash
-npm install
+```text
+week-06-youtube-ui/
+|-- public/
+|   |-- favicon.svg
+|   `-- icons.svg
+|-- src/
+|   |-- assets/
+|   |-- components/
+|   |   |-- category-bar.jsx
+|   |   |-- navbar.jsx
+|   |   |-- short-card.jsx
+|   |   |-- shorts-section.jsx
+|   |   |-- sidebar-item.jsx
+|   |   |-- sidebar.jsx
+|   |   `-- video-card.jsx
+|   |-- App.jsx
+|   |-- data.js
+|   |-- index.css
+|   `-- main.jsx
+|-- index.html
+|-- package.json
+|-- vite.config.js
+|-- eslint.config.js
+`-- README.md
 ```
 
-### 2. Start the App
-Run the following command to start the development server:
+## Main Files
+
+- `src/App.jsx`: Main app layout, selected category state, search state, and filtered video rendering.
+- `src/data.js`: Mock categories, videos, shorts, sidebar items, and user menu items.
+- `src/components/navbar.jsx`: Top navigation bar with menu, YouTube brand, search form, mic button, action icons, and avatar.
+- `src/components/sidebar.jsx`: Sidebar sections built from mock data and React Icons.
+- `src/components/category-bar.jsx`: Horizontal category filter buttons.
+- `src/components/video-card.jsx`: Video card UI for thumbnails, metadata, duration, and channel info.
+- `src/components/shorts-section.jsx`: Shorts row shown on the All category.
+- `src/index.css`: Tailwind import and global styling.
+
+## Features
+
+- YouTube-inspired app shell with sticky top navbar and desktop sidebar.
+- Search by video title or channel name.
+- Category filtering from the horizontal category bar.
+- Responsive video grid.
+- Shorts section rendered only on the All category.
+- Empty search state with a reset filters button.
+- Mock data stored locally in `src/data.js`.
+
+## How to Run
+
 ```bash
+npm install
 npm run dev
 ```
 
-Open the URL shown in your terminal to see your YouTube clone in action!
+Open the local URL shown in your terminal.
 
----
-Happy Coding! 🚀
+## Available Scripts
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
