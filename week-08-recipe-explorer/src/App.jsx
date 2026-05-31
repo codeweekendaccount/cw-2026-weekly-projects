@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
-import './App.css';
+import RecipeDetail from './pages/RecipeDetail';
+
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('recipe-detail'); // Show detail page for now
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
@@ -46,6 +47,9 @@ function App() {
             favorites={favorites}
             removeFavorite={removeFavorite}
           />
+        )}
+        {currentPage === 'recipe-detail' && (
+          <RecipeDetail id="52772" /> /* id of Teriyaki Chicken Casserole as sample */
         )}
       </main>
     </div>
