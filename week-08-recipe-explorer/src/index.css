@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --color-primary: #ff6b6b;
+  --color-primary-hover: #ff4b4b;
+  --color-bg: #0f172a;
+  --color-card: #1e293b;
+}
+
+body {
+  @apply bg-bg text-slate-100 min-h-screen overflow-x-hidden antialiased;
+}
