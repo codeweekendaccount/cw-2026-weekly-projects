@@ -1,6 +1,9 @@
 import RecipeCard from '../components/RecipeCard';
+import { useFavorites } from '../context/FavoritesContext';
 
-function Favorites({ favorites, removeFavorite }) {
+function Favorites() {
+  const { favorites } = useFavorites();
+
   return (
     <div className="animate-fade-in">
       <header className="mb-8">
@@ -14,8 +17,6 @@ function Favorites({ favorites, removeFavorite }) {
             <RecipeCard
               key={recipe.idMeal}
               recipe={recipe}
-              isFavorite={true}
-              onToggleFavorite={() => removeFavorite(recipe.idMeal)}
             />
           ))}
         </div>

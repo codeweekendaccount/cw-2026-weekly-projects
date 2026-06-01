@@ -1,6 +1,11 @@
 import { Heart, Clock, Tag } from 'lucide-react';
+import { Link } from 'react-router';
+import { useFavorites } from '../context/FavoritesContext';
 
-function RecipeCard({ recipe, isFavorite, onToggleFavorite }) {
+function RecipeCard({ recipe }) {
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const favorite = isFavorite(recipe.idMeal);
+
   return (
     <div className="bg-card rounded-2xl overflow-hidden border border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.5),0_4px_6px_-2px_rgba(0,0,0,0.25)] hover:border-primary/30 relative group">
       <div className="relative w-full pt-[75%] overflow-hidden">
@@ -12,14 +17,14 @@ function RecipeCard({ recipe, isFavorite, onToggleFavorite }) {
         />
         <button 
           className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 z-10 hover:scale-110 ${
-            isFavorite 
+            favorite 
               ? 'bg-primary/15 border-primary/30 text-primary' 
               : 'bg-slate-900/60 backdrop-blur-sm border-white/10 text-white hover:bg-slate-900/90'
           }`}
-          onClick={onToggleFavorite}
-          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          onClick={() => toggleFavorite(recipe)}
+          aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
         >
-          <Heart fill={isFavorite ? "#ff4b4b" : "none"} color={isFavorite ? "#ff4b4b" : "currentColor"} />
+          <Heart fill={favorite ? "#ff4b4b" : "none"} color={favorite ? "#ff4b4b" : "currentColor"} />
         </button>
       </div>
       <div className="p-6">
@@ -38,9 +43,9 @@ function RecipeCard({ recipe, isFavorite, onToggleFavorite }) {
             </span>
           )}
         </div>
-        <button className="w-full bg-transparent text-slate-100 border border-slate-700 py-3 rounded-lg font-medium transition-colors duration-300 hover:bg-primary hover:border-primary">
+        <Link to={`/recipe/${recipe.idMeal}`} className="inline-flex items-center justify-center w-full bg-transparent text-slate-100 border border-slate-700 py-3 rounded-lg font-medium transition-colors duration-300 hover:bg-primary hover:border-primary">
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

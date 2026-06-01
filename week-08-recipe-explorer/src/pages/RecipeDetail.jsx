@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
-import { getRecipeById } from '../services/mealApi';
+import { useState, useEffect } from "react";
+import { getRecipeById } from "../services/mealApi";
+import { useParams } from "react-router";
 
-function RecipeDetail({ id }) {
+function RecipeDetail() {
+  const { id } = useParams();
+
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +15,7 @@ function RecipeDetail({ id }) {
         const data = await getRecipeById(id);
         setRecipe(data);
       } catch (error) {
-        console.error('Failed to fetch recipe details', error);
+        console.error("Failed to fetch recipe details", error);
       } finally {
         setLoading(false);
       }
@@ -54,10 +57,10 @@ function RecipeDetail({ id }) {
     <div className="animate-fade-in bg-card border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
       <div className="md:flex">
         <div className="md:w-1/2">
-          <img 
-            src={recipe.strMealThumb} 
-            alt={recipe.strMeal} 
-            className="w-full h-full object-cover min-h-[300px]"
+          <img
+            src={recipe.strMealThumb}
+            alt={recipe.strMeal}
+            className="w-full h-full object-cover min-h-75"
           />
         </div>
         <div className="md:w-1/2 p-8">
@@ -69,46 +72,58 @@ function RecipeDetail({ id }) {
               {recipe.strArea}
             </span>
           </div>
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-br from-white to-indigo-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-linear-to-br from-white to-indigo-300 bg-clip-text text-transparent">
             {recipe.strMeal}
           </h2>
 
           {recipe.strTags && (
             <div className="flex flex-wrap gap-2 mb-6">
-              {recipe.strTags.split(',').map((tag, index) => (
-                <span key={index} className="px-2 py-1 bg-slate-700/50 text-slate-300 text-xs font-medium rounded-md">
+              {recipe.strTags.split(",").map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-slate-700/50 text-slate-300 text-xs font-medium rounded-md"
+                >
                   #{tag.trim()}
                 </span>
               ))}
             </div>
           )}
-          
+
           <h3 className="text-xl font-semibold mb-3 text-white border-b border-slate-700 pb-2">
             Ingredients
           </h3>
           <ul className="flex flex-col gap-2 mb-8">
             {ingredients.map((item, index) => (
-              <li key={index} className="flex justify-between items-center text-slate-300 bg-slate-800/50 p-2 rounded-lg">
-                <span className="font-medium text-white">{item.ingredient}</span>
-                <span className="text-indigo-300 font-semibold">{item.measure}</span>
+              <li
+                key={index}
+                className="flex justify-between items-center text-slate-300 bg-slate-800/50 p-2 rounded-lg"
+              >
+                <span className="font-medium text-white">
+                  {item.ingredient}
+                </span>
+                <span className="text-indigo-300 font-semibold">
+                  {item.measure}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      
+
       <div className="p-8 border-t border-slate-800">
         <h3 className="text-2xl font-semibold mb-4 text-white">Instructions</h3>
         <div className="text-slate-300 space-y-4 whitespace-pre-line leading-relaxed">
           {recipe.strInstructions}
         </div>
-        
+
         {recipe.strYoutube && (
           <div className="mt-8">
-            <h3 className="text-2xl font-semibold mb-4 text-white">Video Tutorial</h3>
-            <a 
-              href={recipe.strYoutube} 
-              target="_blank" 
+            <h3 className="text-2xl font-semibold mb-4 text-white">
+              Video Tutorial
+            </h3>
+            <a
+              href={recipe.strYoutube}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-xl transition-colors duration-200"
             >
@@ -116,13 +131,15 @@ function RecipeDetail({ id }) {
             </a>
           </div>
         )}
-        
+
         {recipe.strSource && (
           <div className="mt-8">
-            <h3 className="text-2xl font-semibold mb-4 text-white">Original Source</h3>
-            <a 
-              href={recipe.strSource} 
-              target="_blank" 
+            <h3 className="text-2xl font-semibold mb-4 text-white">
+              Original Source
+            </h3>
+            <a
+              href={recipe.strSource}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
             >
