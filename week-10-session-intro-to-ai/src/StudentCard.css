@@ -1,0 +1,36 @@
+.card {
+  background: #f4f9fc;
+  border: 1px solid #b5d5ee;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  color: #269fc8;
+  margin-top: 0;
+}
+
+.card button {
+  background: #269fc8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #1a7fa8;
+}
+
+.card .details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #b5d5ee;
+}
+
+.card .details p {
+  margin: 5px 0;
+  color: #555;
+}
