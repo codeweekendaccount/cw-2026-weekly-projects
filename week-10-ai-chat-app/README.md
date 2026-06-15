@@ -1,16 +1,59 @@
-# React + Vite
+# CodeWeekendAI Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite AI chat app built with Tailwind CSS and the OpenAI client.
 
-Currently, two official plugins are available:
+## What this project contains
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- A chat UI built in `src/App.jsx`
+- A Tailwind CSS-powered layout and styling in `src/index.css`
+- Vite configuration with React and Tailwind plugins in `vite.config.js`
+- OpenAI chat completion requests using `openai` in the browser
+- A minimal stateful chat flow with user messages, assistant replies, loading state, and error handling
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive chat interface
+- Message history display with user and assistant styling
+- Submit messages with the Send button or Enter key
+- Scrolls automatically as new messages arrive
+- Handles loading state and request errors
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 18+ recommended
+- `npm` or `pnpm` available on your machine
+- OpenAI API key and API base URL configured in environment variables
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy `.env.example` to `.env` file in the project root and add your own:
+
+```env
+VITE_OPENAI_KEY=your_openai_api_key
+VITE_API_URL=https://api.openai.com/v1
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open the local URL shown in the terminal (usually `http://localhost:5173`).
+
+## Other useful commands
+
+- `npm run build` — build the production bundle
+- `npm run preview` — serve the production build locally
+- `npm run lint` — run ESLint checks across the project
+
+## Notes
+
+- The app uses `dangerouslyAllowBrowser: true` with the OpenAI client, so keep your API key secure and avoid shipping it in a public repository.
+- If you want to customize the AI assistant prompt, update `DEFAULT_PROMPT` in `src/App.jsx`.

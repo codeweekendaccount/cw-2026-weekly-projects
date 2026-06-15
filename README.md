@@ -14,6 +14,8 @@ This repository contains the weekly frontend projects built during the CodeWeeke
 | 06 | [YouTube UI](week-06-youtube-ui/) | React, Vite, Tailwind CSS, React Icons |
 | 07 | [Notes App](week-07-notes-app/) | React, Vite, Tailwind CSS, lucide-react, localStorage |
 | 08 | [Recipe Explorer](week-08-recipe-explorer/) | React, Vite, Tailwind CSS, lucide-react, TheMealDB API |
+| 09 | [Jobs App](week-09-jobs-app/) | React, Vite, Tailwind CSS, lucide-react, TheMealDB API |
+| 10 | [AI Chat app](week-10-ai-chat-app/) | React, Vite, Tailwind CSS, lucide-react, OpenAI API |
 
 There are also session practice folders, such as `week-04-session-dom-and-events/` and `week-05-session-async-and-web-apis/`, used for smaller class exercises.
 
