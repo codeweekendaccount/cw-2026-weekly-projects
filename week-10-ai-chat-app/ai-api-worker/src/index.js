@@ -9,7 +9,7 @@ const corsHeaders = {
 export default {
 	async fetch(request, env, ctx) {
 		if (request.method === 'OPTIONS') {
-			return new Response(JSON.stringify({}, { status: 200, headers: corsHeaders }));
+			return new Response(JSON.stringify(null), { status: 200, headers: corsHeaders });
 		}
 
 		if (request.method !== 'POST') {
@@ -22,7 +22,6 @@ export default {
 				),
 			);
 		}
-
 
 		try {
 			const openai = new OpenAI({
@@ -43,15 +42,13 @@ export default {
 			});
 		} catch (error) {
 			return new Response(
-				JSON.stringify(
-					{
-						message: 'Somthing went wrong' + error.message,
-					},
-					{
-						status: 500,
-						headers: corsHeaders,
-					},
-				),
+				JSON.stringify({
+					message: 'Somthing went wrong' + error.message,
+				}),
+				{
+					status: 500,
+					headers: corsHeaders,
+				},
 			);
 		}
 	},
