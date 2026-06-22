@@ -51,9 +51,11 @@ export default function ChatWindow({
       </header>
 
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto bg-slate-50 p-4">
-        {messages.map((msg) => (
-          <MessageBubble key={msg.id} message={msg} />
-        ))}
+        {messages.map((msg) =>
+          msg.role !== "system"
+           ? <MessageBubble key={msg.id} message={msg} />
+           : null,
+        )}
 
         {isLoading && <LoadingIndicator message={loadingMessage} />}
 
@@ -85,7 +87,8 @@ export default function ChatWindow({
           disabled={isLoading}
         />
         <p className="mt-2 text-center text-[11px] text-slate-400">
-          General information only. Not a substitute for professional medical advice.
+          General information only. Not a substitute for professional medical
+          advice.
         </p>
       </footer>
     </div>

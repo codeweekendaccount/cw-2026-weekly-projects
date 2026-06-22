@@ -5,8 +5,8 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { chunkText } from "../services/chunking";
 import { generateEmbeddings } from "../services/embeddings";
-import { supabase } from "../services/config";
 import { toast } from "react-toastify";
+import { upsertVectors } from "../services/vectorDB";
 
 const inputClass =
   "mt-1.5 block w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20";
@@ -26,14 +26,11 @@ export default function UploadPage() {
       const dataToStore = chunks.map((ch, idx) => {
         return {
           content: ch,
-          embedding: vectors[idx].embedding,
+          embedding: vectors[idx],
         };
       });
 
-      const { error } = await supabase.from("clinic_info").insert(dataToStore);
-      if (error) {
-        throw error;
-      }
+      await upsertVectors(dataToStore);
 
       toast.success("Knowledge added successfully");
       setInput("");

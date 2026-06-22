@@ -16,7 +16,7 @@ export async function generateEmbedding(text = "") {
       throw error;
     }
 
-    return data[0];
+    return data[0].embedding;
   } catch (error) {
     console.error("Error in generateEmbedding:", error.message);
     throw error;

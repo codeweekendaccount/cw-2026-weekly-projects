@@ -1,89 +1,70 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import ChatButton from "./ChatButton";
 import ChatWindow from "./ChatWindow";
+import { sendRagMessage } from "../services/ragService";
 
-const STORAGE_KEY = "smartclinic_chat_session";
+const SYSTEM_PROMPT = `
+    You are SmartClinic's virtual front desk assistant.
+    Answer only using the provided clinic context.
+    If the context does not contain the answer, say you don't have that information and suggest calling the clinic.
+    Never provide medical diagnoses or emergency advice.
+    Always provide response in plain text (no markdown).
+`;
 
 const WELCOME_MESSAGE = {
-  id: "welcome",
   role: "assistant",
   content:
     "Hello! I'm SmartClinic's virtual assistant. Ask me about our services, doctors, hours, or policies — I'm here to help.",
   timestamp: new Date().toISOString(),
 };
 
-function loadSession() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { isOpen: false, messages: [WELCOME_MESSAGE] };
-    const parsed = JSON.parse(raw);
-    return {
-      isOpen: Boolean(parsed.isOpen),
-      messages:
-        Array.isArray(parsed.messages) && parsed.messages.length > 0
-          ? parsed.messages
-          : [WELCOME_MESSAGE],
-    };
-  } catch {
-    return { isOpen: false, messages: [WELCOME_MESSAGE] };
-  }
-}
-
-export default function ChatWidget({ onSendMessage }) {
-  const initial = loadSession();
-  const [isOpen, setIsOpen] = useState(initial.isOpen);
-  const [messages, setMessages] = useState(initial.messages);
+export default function ChatWidget() {
+  const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({ isOpen, messages })
-    );
-  }, [isOpen, messages]);
-
-  const handleSend = useCallback(
-    async (text) => {
-      const userMessage = {
-        id: `user-${Date.now()}`,
-        role: "user",
-        content: text,
-        timestamp: new Date().toISOString(),
-      };
-
-      const updatedHistory = [...messages, userMessage];
-      setMessages(updatedHistory);
-      setInputValue("");
-      setError(null);
-
-      if (!onSendMessage) return;
-
-      setIsLoading(true);
-      try {
-        const reply = await onSendMessage(text, updatedHistory);
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: `assistant-${Date.now()}`,
-            role: "assistant",
-            content: reply,
-            timestamp: new Date().toISOString(),
-          },
-        ]);
-      } catch (err) {
-        const message =
-          err instanceof Error
-            ? err.message
-            : "Unable to fetch clinic information. Please try again.";
-        setError(message);
-      } finally {
-        setIsLoading(false);
-      }
+  const [messages, setMessages] = useState([
+    {
+      role: "system",
+      content: SYSTEM_PROMPT,
     },
-    [messages, onSendMessage]
-  );
+    WELCOME_MESSAGE,
+  ]);
+
+  async function handleSend(text) {
+    const userMessage = {
+      role: "user",
+      content: text,
+      timestamp: new Date().toISOString(),
+    };
+
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInputValue("");
+    setError(null);
+
+    setIsLoading(true);
+    try {
+      const reply = await sendRagMessage(text, updatedMessages);
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: reply,
+          timestamp: new Date().toISOString(),
+        },
+      ]);
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Unable to fetch clinic information. Please try again.";
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-1000 flex flex-col items-end gap-4 max-sm:bottom-4 max-sm:left-4 max-sm:right-4 max-sm:items-stretch">
@@ -108,10 +89,7 @@ export default function ChatWidget({ onSendMessage }) {
         )}
       </div>
 
-      <ChatButton
-        isOpen={isOpen}
-        onClick={() => setIsOpen((open) => !open)}
-      />
+      <ChatButton isOpen={isOpen} onClick={() => setIsOpen((open) => !open)} />
     </div>
   );
 }
