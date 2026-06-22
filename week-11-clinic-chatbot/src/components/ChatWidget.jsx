@@ -3,14 +3,6 @@ import ChatButton from "./ChatButton";
 import ChatWindow from "./ChatWindow";
 import { sendRagMessage } from "../services/ragService";
 
-const SYSTEM_PROMPT = `
-    You are SmartClinic's virtual front desk assistant.
-    Answer only using the provided clinic context.
-    If the context does not contain the answer, say you don't have that information and suggest calling the clinic.
-    Never provide medical diagnoses or emergency advice.
-    Always provide response in plain text (no markdown).
-`;
-
 const WELCOME_MESSAGE = {
   role: "assistant",
   content:
@@ -23,13 +15,7 @@ export default function ChatWidget() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [messages, setMessages] = useState([
-    {
-      role: "system",
-      content: SYSTEM_PROMPT,
-    },
-    WELCOME_MESSAGE,
-  ]);
+  const [messages, setMessages] = useState([WELCOME_MESSAGE]);
 
   async function handleSend(text) {
     const userMessage = {

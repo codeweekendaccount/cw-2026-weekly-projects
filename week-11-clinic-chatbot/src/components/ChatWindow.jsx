@@ -51,11 +51,9 @@ export default function ChatWindow({
       </header>
 
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto bg-slate-50 p-4">
-        {messages.map((msg) =>
-          msg.role !== "system"
-           ? <MessageBubble key={msg.id} message={msg} />
-           : null,
-        )}
+        {messages.map((msg) => (
+          <MessageBubble key={msg.id} message={msg} />
+        ))}
 
         {isLoading && <LoadingIndicator message={loadingMessage} />}
 
